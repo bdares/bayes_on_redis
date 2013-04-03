@@ -67,6 +67,8 @@ class BayesOnRedis
 
   def classify(text)
     (score(text).sort_by { |score| -score[1] })[0][0]    # [0][0] -> first score, get the key
+  rescue
+    nil
   end
 
   private
