@@ -6,9 +6,11 @@ Gem::Specification.new do |gem|
   gem.summary = "Bayesian filter on top of Redis"
   gem.description = "bayes_on_redis library provides bayesian classification on a given text similar to many SPAM/HAM filtering technique."
 
-  gem.authors  = ['Didip Kerabat']
-  gem.email    = 'didipk@gmail.com'
-  gem.homepage = 'https://github.com/didip/bayes_on_redis'
+  gem.authors  = ['Didip Kerabat', 'Brian Park']
+  gem.email    = 'bdares@gmail.com'
+  gem.homepage = 'https://github.com/bdares/bayes_on_redis'
+  
+  gem.add_dependency 'redis', '~> 3.0.3'
 
   gem.rubyforge_project = nil
   gem.has_rdoc = false
