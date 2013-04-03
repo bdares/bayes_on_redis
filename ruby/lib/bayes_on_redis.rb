@@ -34,7 +34,7 @@ class BayesOnRedis
     category = category.downcase
 
     count_occurance(text).each do |word, count|
-      word_count_atm = @redis.hget(redis_category_key(category), word)
+      word_count_atm = @redis.hget(redis_category_key(category), word).to_i
       if (word_count_atm >= count)
         new_count = (word_count_atm - count)
       else
