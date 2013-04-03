@@ -1,15 +1,17 @@
+#encoding: utf-8
 require "rubygems"
 require "redis"
 
 class BayesOnRedis
   CATEGORIES_KEY = "BayesOnRedis:categories"
   ONE_OR_TWO_WORDS_RE = /\b\w{1,2}\b/mi
-  NON_ALPHANUMERIC_AND_NON_DOT_RE = /[^\w\.]/mi
+  #NON_ALPHANUMERIC_AND_NON_DOT_RE = /[^\w\.]/mi
+  NON_ALPHANUMERIC_AND_NON_DOT_RE = /[^_a-zA-Z0-9가-힣\.]/mi
 
   attr_reader :redis, :stopwords
 
   def initialize(options)
-    @redis = Redis.new(:host => options[:redis_host], :port => options[:redis_port], :db => options[:redis_db])
+    @redis = Redis.new(options)
     @stopwords = Stopword.new
   end
 
